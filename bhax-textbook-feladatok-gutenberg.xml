@@ -1,0 +1,363 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Gutenberg!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+        <cover>
+            <para>
+                Programozás tankönyvek rövid olvasónaplói.
+            </para>
+        </cover>
+    </info>
+    <section> <!--Pici-->
+        <title>Programozási alapfogalmak</title>
+        <para>         
+            <citation>PICI</citation>
+		<para>
+		Alapfogalmak
+		</para>
+		<para>
+		A programozási nyelveknek három szintje van: gépi-, assembly szintű- és magas szintű nyelv. A megírt programot forrásprogramnak nevezzük, nyelvtani és tartalmi szabályai a szintaktikai és szemantikai szabályok.
+		Minden processzor saját gépi nyelvvel rendelkezik. A fordítóprogram a magas szintű nyelve megírt programot tárgyprogrammá alakítja, így a processzor végre tudja hajtani. A fordítóprogram a következő lépéseket hajtja végre: lexikális- , szintaktikai-, szemantikai elemzés és kódgenerálás.
+		A programnyelveket két osztályra osztjuk imperatív és deklaratív nyelvek.
+		</para>
+		<para>
+		Adattípusok
+		</para>
+		<para>
+		A programozási nyelvekben az adattípusok az adatabsztrakció első megjelenési formája. Az adattípust három dolog határozza meg: tartomány, műveletek, reprezentáció.
+		Egyszerű típusok egy értéket tárolnak. Összetett típusok, mint a tömb, több azonos típusú értéket tárol. A mutató típus egy memória címet tartalmaz, ami egy egyszerű vagy összetett típusra mutat.
+		</para>
+		<para>
+		A nevesített konstans
+		</para>
+		<para>
+		Három komponense van: név, típus, érték. Mindig deklarálni kell és a megadott érték nem változtatható a program futtatása alatt.
+		</para>
+		<para>
+		A változó
+		</para>
+		<para>
+		Négy komponense van: név, attribútumok, típus, érték. Ahogy a neve is mondja ennek az értéke változhat a program futtatása alatt.
+		</para>
+		<para>
+		Alapelemek a C-ben
+		</para>
+		<para>
+		Aritmetikai típusok : egész, karakter, felsorolásos, valós.
+		</para>
+		<para>
+		Származtatott típusok: union, struktúra, mutató, függvény, tömb, void típus.
+		</para>
+		<para>
+		Kifejezések
+		</para>
+		<para>
+		Szintaktikai eszközök, melyek ismert értékekből újakat határoznak meg. A következőkből áll: operandusok, operátorok, kerek zárójelek. Három alakja van: prefix, infix, postfix.
+		Műveletek végrehajtási sorrendje lehet: balról-jobbra, jobbról-balra, balról-jobbra betartva a műveletek prioritási sorrendjét.
+		</para>
+		<para>
+		A programok szerkezete
+		</para>
+		<para>
+		A program szövege eljárás orientált nyelvekben többé-kevésbé kisebb programegységekre tagolható. Az következő programegységek léteznek: alprogram, blokk, csomag, taszk.
+		</para>
+		<para>
+		Alprogram
+		</para>
+		<para>
+		Az újrafelhasználás eszköze, ha a programban egy algoritmus többször előfordul különböző helyeken, az algoritmust kiemelhetjük egy alprogramba, és a továbbiakban erre hivatkozva bárhol meghívható.
+		A következőkből épül fel: fej, törzs, vég. Az alprogram két fajta lehet: eljárás és függvény. Az eljárás valami tevékenységed hajt végre, a függvény pedig egy értéket térít vissza.
+		</para>
+		<para>
+		Hívási lánc, rekurzió 
+		</para>
+		<para>
+		Egy programegységet bármikor meghívhat egy program egység, ami meghívhat egy másikat és így tovább. Az így keletkezett láncot hívjuk hívási láncnak. Amikor egy aktív alprogramot hívunk meg, azt rekurziónak nevezzük, ez lehet közvetlen (saját magát hívja meg), közvetett(a hívási láncban már szerepelt alprogramot hívjuk meg.)
+		</para>
+		<para>
+		A blokk
+		</para>
+		<para>
+		Három  részből áll: kezdet, törzs, vég. A blokk csak egy programegységben helyezhető el, végét és elejét speciális karaktersorozat jelzi.
+		</para>
+		<para>
+		Másodlagos belépési pontok
+		</para>
+		<para>
+		Vannak nyelvek melyekben az alprogramot meglehet hívni a törzsben, ezt nevezzük másodlakos belépési pontnak.
+		</para>
+		<para>
+		Paraméter kiértékelés
+		</para>
+		<para>
+		Ebben a folyamatban határozódnak meg azok az információk, melyek paraméter átadásnál a kommunikációt szolgálják.
+		</para>
+		<para>
+		Paraméter átadás
+		</para>
+		<para>
+		Kommunikációs folyamat az alprogram és a programegység között. A következő paraméter átadási módok ismertek: érték-, cím-, eredmény-, érték-eredmény-, név-, szöveg szerinti.
+		</para>
+		<para>
+		Hatáskör
+		</para>
+		<para>
+		A program szövegének azon része, melyben egy adott név ugyan arra a programozási eszközre hívatkozik.
+		</para>
+		<para>
+		GENERIKUS PROGRAMOZÁS 
+		</para>
+		<para>
+		Az újrafelhasználhatóság eszközé. Ez a paradigma minden más paradigmára ortogonális, beleépíthető. Lényege, hogy forrásszöveg-mintát hozunk létre mely paraméterezhető. A mintaszövegből annyi szöveg generálható, amennyit szeretnénk.
+		</para>
+		<para>
+		INPUT/OUTPUT
+		</para>
+		<para>
+		Ez felelős a perifériákkal történő kommunikációért. Központjában az állomány áll, ami 3 fajta lehet: input (csak olvasható és léteznie kell a feldolgozás előtt), output a feldolgozás után lett létrehozva, input-output létezik a feldolgozás előtt és megváltozik utána.
+		Ha állománnyal szeretnénk dolgozni a következőket kell megtennünk: deklaráció, összerendelés, állomány, feldolgozás, lezárás. A C nyelvnek az I/O eszközrendszer nem része.
+		</para>
+		<para>
+		KIVÉTELKEZELÉS
+		</para>
+		<para>
+		Ezzel vehető át az operációs rendszertől a hibakezelést. A kivétel kezelésére a kivételkezelőt használunk, mely akkor lép életbe, ha a program hibába ütközik. A kivételeknek van neve és kódja.
+		A nyelveknek ezeket a kérdéseket kell megválaszolják, a kivételkezelési eszközrendszerrel kapcsolatban:
+		1. Milyen kivételek vannak a nyelvben megadva?
+		2. A programozó definiálhat-e kivételt?
+		3. Milyenek a hatásköri szabályai a kivételkezelőnek?
+		4. Köthető-e a kivételkezelő programelemekhez?
+		5. A kivételkezelés után, hogy folytatódik a program?
+		6. Ha a kivételkezelőben történik kivétel, akkor mi történik?
+		7. A nyelvben van-e kivételkezelő?
+		8. Lehet-e kivételt kezelő kivételkezelőt írni?
+		9. Lehet-e paramétert adni a kivételkezelőnek?
+		</para>
+		<para>
+		A FUNKCIONÁLIS PARADIGMA
+		</para>
+		<para>
+		Központjában a függvények állnak.
+		</para>
+    </section>        
+    <section> <!--K&R-->
+        <title>Programozás bevezetés</title>
+        <para>                
+            <citation>KERNIGHANRITCHIE</citation>
+        </para>       
+		<para>
+            Megoldás videó: <link xlink:href="https://youtu.be/zmfT9miB-jY">https://youtu.be/zmfT9miB-jY</link>
+        </para>
+		
+		<para>
+		Vezérlési szerkezetek
+		</para>
+		<para>
+		A vezérlőátadó utasítások a műveltek végrehajtási sorrendjét határozzák meg.
+		</para>
+		<para>
+		3.1. Utasítások és blokkok
+		</para>
+		<para>
+		A kifejezés akkor válik utasítássá, ha pontosvesszőt írunk a végére. Ezeket az utasításokat csoportosíthatjuk, ha {} közzé írjuk őket. Ez hasznos az if, else, for, while és do while utasítások használatakor.
+		</para>
+		<para>
+		3.2. Az if-else utasítás
+		</para>
+		<para>
+		Döntés kifejezésre használjuk ezt az utasítást. Az if után megadunk egy feltétel kerek zárójelekben, és ha ez az érték igaz érték, akkor végrehajtódik az if törzse. Különben áttér az else részre, mivel ez a része nem kötelező, elhagyható, ha nem szeretnénk semmit sem csinálni hamis feltételnél. 
+		</para>
+		<para>
+		3.3. Az else-if utasítás
+		</para>
+		<para>
+		Az egyik legáltalánosabb lehetősége a többszöri döntések programozásának. A program addig fogja kiértékelni a fejezéseket, ameddig nem talál egy igazat. Ha mindig hamis feltételt kapunk, az utolsó if nélküli else lesz végrehajtva. 
+		</para>
+		<para>
+		3.4. A switch utasítás
+		</para>
+		<para>
+		Ez az utasítás a többirányú programelágaztatás egyik eszköze. Összehasonlítja a kapott értéket, több előre megadott egész értékkel, és a megfelelőhöz tartozó utasítás csoportot hajtja végre.
+		</para>
+		<para>
+		3.5. Ciklusszervezés while és for utasítással
+		</para>
+		<para>
+		Ezek az utasítások egy addig ismétlő utasítások. A while kiértékeli a megadott feltételt és ameddig igaz addig újra és újra végrehajtódik. A feltételben megadót változót vagy változókat a cikluson belül kell változtatni, ha ezt nem tesszük meg, akkor végtelen ciklust kapunk. A for annyiban különbözik, hogy itt nem csak a feltételt adjuk meg, hanem a változót és annak változási szabályát is.
+		</para>
+		<para>
+		3.6. Ciklusszervezés do-while utasítással
+		</para>
+		<para>
+		Ez annyiban különbözik a while ciklustól, hogy a feltétel kiértékelése a ciklus végén történik. Ennek köszönhetően egyszer biztos lefutnak a ciklusban lévő utasítások.
+		</para>
+		<para>
+		3.7. A break és continue utasítások
+		</para>
+		<para>
+		A break utasítással azonnal befejezhetünk egy ismétlő utasítást, illetve a switch ágából is ezzel lépünk ki. A continue utasítást csak ciklusban használhatjuk, a whileban újra indítja a ciklust és a hátramaradt utasításokat kihagyja. Forban a ciklusváltozót újra inicializálja.
+		</para>
+		<para>
+		3.8. A goto utasítás és a címkék
+		</para>
+		<para>
+		A goto utasítással egy címkére ugorhatunk és a program onnan folytatja majd az utasításokat.
+		</para>
+		<para>
+		A9. Utasítások
+		</para>
+		<para>
+		Leírásuk sorrendjében hajtódnak végre az utasítások, kivéve ha külön jelezzük.
+		</para>
+		<para>
+		A9.1. Címkézett utasítások
+		</para>
+		<para>
+		Egy azonosító, amit azonosítóként deklarálunk. Ezt csak a goto célpontjaként lehet használni.
+		</para>
+		<para>
+		A9.2. Kifejezésutasítások
+		</para>
+		<para>
+		Általában értékadás vagy függvényhívás.
+		</para>
+		<para>
+		A9.3. Összetett utasítás
+		</para>
+		<para>
+		Az utasítások számának korlátozását szünteti meg úgy, hogy több utasítást kezel egyként.
+		</para>	
+		<para>
+		A9.4. Kiválasztó utasítások
+		</para>
+		<para>
+		A lehetséges végrehajtási sorrend egyikét hajtja végre.
+		</para>
+		<para>
+		A9.5. Iterációs utasítások
+		</para>
+		<para>
+		Egy ciklust határoznak meg.
+		</para>
+		<para>
+		A9.6. Vezérlésátadó utasítások
+		</para>
+		<para>
+		Ahogy az utasítás neve is mondja, a vezérlés átadására használhatjuk.
+		</para>
+    </section>        
+    <section> <!--BME-->
+        <title>Programozás</title>
+        <para>                
+            <citation>BMECPP</citation>
+        </para>
+		<para>
+		A C++ a C tovább fejlesztett verziója.
+		</para>
+		<para>
+		Függvényparaméterek és visszatérítési érték
+		</para>
+		<para>
+		Ha egy függvényt "void" paraméterlistával határozunk meg, akkor tetszőleges számú paraméterrel hívható meg. C++ban nincs alapértelmezett visszatérési érték.
+		</para>
+		<para>
+		Main függvény
+		</para>
+		<para>
+		Itt nem kötelező a return használata, a C++ automatikusan 0-t térít vissza.
+		</para>
+		<para>
+		Bool típus
+		</para>
+		<para>
+		Ez a típus csak a C++ban érhető el, C-ben nem. Ebben a típusban logikai értéket tárolhatunk (igaz/hamis). Változói a false és true
+		</para>
+		<para>
+		C stílusú több-bájtos sztringek
+		</para>
+		<para>
+		Még a C-ben ehhez #includ-olni kellet egy fejléc fájlt, addig a C++ban ez már beépített típus lett.
+		</para>
+		<para>
+		Változódeklaráció mint utasítás
+		</para>
+		<para>
+		C++ban mindenhol állhat változódeklaráció, ahol utasítás állhat.
+		</para>
+		<para>
+		Függvénynevek túlterhelése
+		</para>
+		<para>
+		Egy függvényt C-ben a neve azonosít egyértelműen ezért egy hatáskörben nem szerepelhet két azonos nevű függvény. C++ban a függvényeket nevük és argumentum listájuk együttesen azonosítja, amennyiben az argumentum listájuk alapján megkülönböztethetőek.
+		A függvény visszatérési típusa nem jelent különbséget.
+		</para>
+		<para>
+		Alapértelmezett függvényargumentumok
+		</para>
+		<para>
+		C++ban lehetőség van a függvények argumentumainak alapértelmezett értéket adni. Amennyiben ezeknek az argumentumoknak függvény híváskor nem adunk értéket, akkor a függvény az alapértelmezett értékeket fogja használni.
+		</para>
+		<para>
+		Paraméterátadás referenciatípussal
+		</para>
+		<para>
+		Az átadáshoz pointert használunk és a paraméter elé a függvény deklarálásnál a váltózó elé egy & jelet kell írnunk.
+		</para>
+		<para>
+		Az objektumorientáltság alapelvei:
+		</para>
+		<para>
+		-egységbezárás
+		</para>
+		<para>
+		-adatrejtés
+		</para>
+		<para>
+		-behelyettesítés
+		</para>
+		<para>
+		Egységbe zárás
+		</para>
+		<para>
+		Ezt egy struktúrával vagy osztállyal érhetjük el. ennek elemei lehetnek változók és függvények is. A tagfüggvényeket műveleteknek is nevezzük. Meghívásánál elég a struktúra vagy osztály típusú változó nevét kiírni.
+		</para>
+		<para>
+		Adatrejtés
+		</para>
+		<para>
+		Mivel a struktúrában minden változó és tagfüggvény nyilvános, ha azt szeretnénk, hogy egyes változók ne legyenek elérhetőek, használnunk kell a private kulcs szót. Osztály esetén ez pont fordítva van, ha azt szeretnénk, hogy a tagfüggvényeket elérjük a programban a public kulcs szót kell használnunk.
+		</para>
+		<para>
+		Konstruktorok és destruktorok
+		</para>
+		<para>
+		A konstruktor tagfüggvény neve megegyezik az osztály nevével, feladata az osztályban lévő változók inicializálása. A destruktor törli a változót, neve az osztály neve előtte egy ~ jellel.
+		</para>
+		<para>
+		Friend függvények és osztályok 
+		</para>
+		<para>
+		A külső függvényeknek és osztályoknak a friend szóval hozzáférést tudunk biztosítani az osztály rejtett változóihoz is. Ez a tulajdonság nem öröklődik és nem tranzitív.
+		</para>
+		<para>
+		Statikus tagok
+		</para>
+		<para>
+		Osztályon belül lehetőség van statikus tagok deklarálására, ezek az osztály minden obijektumára közös értéket vesznek fel. Statikus tagfüggvényekből a nem statikus tagfüggvények és tagváltozók nem érhetőek el.
+		</para>
+		<para>
+		Operátorok
+		</para>
+		<para>
+		Az operátorok az argumentumaikon végeznek műveletet. Némely operátorok megváltoztatják az argumentumainak értékét.
+		</para>
+		<para>
+		Kivételkezelés
+		</para>
+		<para>
+		A kivétel kezelés biztosítja, hogy ha hibát találunk, akkor a program azonnal kezdje el kezelni azt.
+		</para>
+    </section>        
+</chapter>                

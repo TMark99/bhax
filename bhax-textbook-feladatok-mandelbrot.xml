@@ -1,0 +1,97 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Mandelbrot!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+    <section>
+        <title>A Mandelbrot halmaz</title>
+        <para>
+                
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/gvaqijHlRUs">https://youtu.be/gvaqijHlRUs</link>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://sourceforge.net/p/udprog/code/ci/master/tree/source/kezdo/elsocpp/mandelbrot/mandelbrot.cpp#l1">https://sourceforge.net/p/udprog/code/ci/master/tree/source/kezdo/elsocpp/mandelbrot/mandelbrot.cpp#l1</link>               
+        </para>
+		<para>
+            Tanulságok, tapasztalatok, magyarázat: 
+			A Mandelbrot-halmaz egy síkbeli alakzat, amit egy egyszerű matematikai összefüggés bonyolultabb elemzése rajzol ki. 
+			Ez a megközelítés a komplex számokkal történik ebben a feladatban.
+			A halmaz a komplex számsíkon van ábrázolva, ami nem különbözik a matekórákon megszokott síkoktól.
+        </para>
+    </section>        
+        
+    <section>
+        <title>A Mandelbrot halmaz a <filename>std::complex</filename> osztállyal</title>
+        <para>
+                
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/gvaqijHlRUs">https://youtu.be/gvaqijHlRUs</link>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://gist.github.com/TMark99/2781a80f966f5a091ab52a57ca0d23d5">https://gist.github.com/TMark99/2781a80f966f5a091ab52a57ca0d23d5</link>               
+        </para>
+		<para>
+            Tanulságok, tapasztalatok, magyarázat: 
+			A feladat és az algoritmus ugyan az, csak ebben az esetben felhasználjuk a complex osztályt és a függvényeit.
+        </para>
+    </section>        
+                
+    <section>
+        <title>Biomorfok</title>
+        <para>
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/IJMbgRzY76E">https://youtu.be/IJMbgRzY76E</link>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/Biomorf">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/Biomorf</link>
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: A biomorfok hasonlítanak a Mandelbrot halmazokhoz. A különbség, hogy a biomorfokkal létrehozott alakzatok hasonlítanak a gerinctelen életformákhoz.
+        </para>                        
+    </section>                     
+
+    <section>
+        <title>A Mandelbrot halmaz CUDA megvalósítása</title>
+        <para>
+        </para>
+        <para>
+            Megoldás videó: 
+        </para>
+        <para>
+            Megoldás forrása:  
+        </para>
+    </section>                     
+
+    <section>
+        <title>Mandelbrot nagyító és utazó C++ nyelven</title>
+        <para>
+            Építs GUI-t a Mandelbrot algoritmusra, lehessen egérrel nagyítani egy területet, illetve egy pontot
+            egérrel kiválasztva vizualizálja onnan a komplex iteréció bejárta z<subscript>n</subscript> komplex számokat!
+        </para>
+            
+        <para>
+            Megoldás forrása:  <link xlink:href="https://github.com/TMark99/mandelbrotnagyitoc">https://github.com/TMark99/mandelbrotnagyitoc</link>
+        </para>
+
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: A program Mandelbrot halmazt hozz létre, mint az első kettő. A különbség az, hogy ez képes kinagyítani a kapott képet. A kinagyított képen újra végzi a számításokat, így tiszta részképet kapunk. 
+        </para>
+    </section>                     
+                                                                                                                                                                           
+    <section>
+        <title>Mandelbrot nagyító és utazó Java nyelven</title>
+        <para>
+			Megoldás forrása:  <link xlink:href="https://github.com/TMark99/mandelbrotjava/tree/master">https://github.com/TMark99/mandelbrotjava/tree/master</link>
+        </para>
+		<para>
+            Tanulságok, tapasztalatok, magyarázat: A program ugyan azt csinálja, mint az előző, az algoritmus itt viszont java-ban van kódolva és nem C-ben.
+        </para>
+    </section>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                

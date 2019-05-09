@@ -1,0 +1,58 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Schwarzenegger!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+    <section>
+        <title>Szoftmax Py MNIST</title>
+        <para>
+            Python
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/j7f9SkJR3oc">https://youtu.be/j7f9SkJR3oc</link>      
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://github.com/tensorflow/tensorflow/releases/tag/v0.9.0">https://github.com/tensorflow/tensorflow/releases/tag/v0.9.0</link> (/tensorflow-0.9.0/tensorflow/examples/tutorials/mnist/), <link xlink:href="https://progpater.blog.hu/2016/11/13/hello_samu_a_tensorflow-bol">https://progpater.blog.hu/2016/11/13/hello_samu_a_tensorflow-bol</link>  
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat:  A TensorFlow egy szoftverkönyvtár. Nagyon sok féle algoritmus megírására alkalmas például a robotikában és az agykutatásban.
+			A számításokat irányított gráf írja le. A gráf élein történik az adatforgalom és minden csúcspont egy művelet. Ezeknek a csúcsoknak tetszőleges mennyiségű inputja és outpotja lehet.
+			Ebben a feladatban a TensorFlow segítségével kézírás felismerőt készítünk. A program kap egy képet és megpróbálja felismerni a leírt számot. Mivel feltételen az 50%-os hasonlóság van beállítva, a program tévedhet.
+        </para>
+    </section>        
+    <section>
+        <title>Mély MNIST</title>
+        <para>
+            Python            
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: Ez a program is képről fog felismerni, de itt már nem csak számokat, hanem akármit, amit megadunk az adatbázisban.
+			A hiba lehetőség is csökkent, szóval pontosabb választ ad meg majd a program.
+        </para>
+    </section>                         
+    <section>
+        <title>Minecraft-MALMÖ</title>
+        <para>
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/bAPSu3Rndi8">https://youtu.be/bAPSu3Rndi8</link>      
+        </para>
+        <para>
+            Megoldás forrása:<link xlink:href="https://github.com/Microsoft/malmo">https://github.com/Microsoft/malmo</link>
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: Ezen a platformon a mesterséges intelligencia világában végezhetünk kutatásokat a Minecraft használatával.
+			Készítünk egy Python ágenst, amely az akadályokat legyőzve, felfedezi a világot. Az az a karakterünk akit a Minecraft játékosok Stevenek hívnak, egy időintervallumon belül ne akadjon el.
+			A program ehez a Steve körüli 26 kockát vizsgálja.Ha nem tud tovább menni előre,  megpróbálja kikerülni az akadályt vagy átugrani. Folyamatosan visszajelzést kapunk arról, hogy Steve milyen akadályba utközött. 
+        </para>
+    </section>        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+</chapter>                

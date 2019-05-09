@@ -1,0 +1,187 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Caesar!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+    <section>
+        <title><type>int ***</type> háromszögmátrix</title>
+        <para>
+           
+        </para>
+        <para>
+            Megoldás videó:<link xlink:href="https://www.youtube.com/watch?v=1MRTuKwRsB0">https://www.youtube.com/watch?v=1MRTuKwRsB0</link> 
+        </para>
+        <para>
+            Megoldás forrása: 
+				<programlisting language="c"><![CDATA[
+	
+	#include <stdio.h>
+	#include <stdlib.h>
+	int main ()
+	{
+	    int nr = 5;
+	    double **tm;
+	    printf("%p\n", &tm);
+	    if ((tm = (double **) malloc (nr * sizeof (double *))) == NULL)
+	    {
+		return -1;
+	    }
+	    printf("%p\n", tm);
+	    for (int i = 0; i < nr; ++i)
+	    {
+		if ((tm[i] = (double *) malloc ((i + 1) * sizeof (double))) == NULL)
+		{
+		    return -1;
+		}
+	    }
+	    printf("%p\n", tm[0]);
+	    for (int i = 0; i < nr; ++i)
+		for (int j = 0; j < i + 1; ++j)
+		    tm[i][j] = i * (i + 1) / 2 + j;
+	    for (int i = 0; i < nr; ++i)
+	    {
+		for (int j = 0; j < i + 1; ++j)
+		    printf ("%f, ", tm[i][j]);
+		printf ("\n");
+	    }
+	    for (int i = 0; i < nr; ++i)
+	    {
+		for (int j = 0; j < i + 1; ++j)
+		    printf ("%f, ", tm[i][j]);
+		printf ("\n");
+	    }
+	    for (int i = 0; i < nr; ++i)
+		free (tm[i]);
+	    free (tm);
+	    return 0;
+	}
+	]]></programlisting>
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: Ha egy négyzetes mátrix főátlója alatt vagy felett minden elem 0, a mátrix háromszögmátrix.
+            Az alsó háromszögmátrix elemeit sorfolytonosan bejárva el tudjuk helyezni egy tömbben, az így kapott elemek száma n(n+1)/2 lesz.
+			A felső háromszögmátrix elemeit pedig oszlopfolytonosan bejárva tudjuk elhelyezni egy tömbben, az így kapott elemek száma megegyezik az előző módszerrel.
+			A <function>malloc</function> függvény lefoglal egy paraméterként kapott méretű területet a memóriában.
+			A <function>free</function> függvény felszabadítja a lefoglalt területet. A tm-ben a sor első elemének memóriacímét tároljuk.
+			<inlinemediaobject>
+			<imageobject>
+                            <imagedata fileref="matrix.png"/>
+			</imageobject>
+                        <textobject>
+                            <phrase>A mátrix a memóriában</phrase>
+                        </textobject>
+			</inlinemediaobject>
+        </para>            
+    </section>        
+    <section>
+        <title>C EXOR titkosító</title>
+        <para>
+            Írj egy EXOR titkosítót C-ben!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:
+	<programlisting language="c"><![CDATA[
+	#include <stdio.h>
+	#include <unistd.h>
+	#include <string.h>
+	#define MAX_KULCS 100
+	#define BUFFER_MERET 256
+	int main (int argc, char **argv)
+	{
+	  char kulcs[MAX_KULCS];
+	  char buffer[BUFFER_MERET];
+	  int kulcs_index = 0;
+	  int olvasott_bajtok = 0;
+	  int kulcs_meret = strlen (argv[1]);
+	  strncpy (kulcs, argv[1], MAX_KULCS);
+	  while ((olvasott_bajtok = read (0, (void *) buffer, BUFFER_MERET)))
+	    {
+	      for (int i = 0; i < olvasott_bajtok; ++i)
+		{
+		  buffer[i] = buffer[i] ^ kulcs[kulcs_index];
+		  kulcs_index = (kulcs_index + 1) % kulcs_meret;
+		}
+	      write (1, buffer, olvasott_bajtok);
+	    }
+	}
+	]]> </programlisting>			
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: 
+			A titkosítási módszer a xor művelet azonosságain alapul: A XOR B = C és C XOR B = A (A=tiszta bemeneti adat, B=titkosító kulcs, C=kimenő titkosított adat)
+			Amennyiben a bemeneti adat és a kulcs egyforma hosszúságú "feltörhetetlen" titkosítást kapunk, mivel a feltörés időtartalma nagyon hosszú.
+			Ha a titkosítandó szöveg hosszabb, mint a kulcs, akkor a kulcs ismétlődni kezd.
+        </para>            
+    </section>        
+    <section>
+        <title>Java EXOR titkosító</title>
+        <para>
+            Írj egy EXOR titkosítót Java-ban!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html#exor_titkosito"> https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html#exor_titkosito</link>            
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: Az elképzelés és az algoritmus ugyanaz, mint az előző feladatnál, csak C helyet java nyelvben. A különbség, hogy a titkosítás itt egy classon belül történik, és a főfüggvényben ez csak meghívásra kerül.
+        </para>            
+    </section>        
+    <section>
+        <title>C EXOR törő</title>
+        <para>
+            Írj egy olyan C programot, amely megtöri az első feladatban előállított titkos szövegeket!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://gist.github.com/TMark99/2191f92bee40a663a59a0f3ede2431eb">https://gist.github.com/TMark99/2191f92bee40a663a59a0f3ede2431eb</link>        
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: Ez a kódtörő az előző programmal titkosított adatokat dekódolja, amennyiben a bemeneti adat magyar nyelvű és a kulcs 8 számjegyű.
+			Az algoritmus minden lehetséges kulccsal próbálkozik, de csak azt adja vissza, amelyik megfelel a feltételeknek. A feltörés a titkosított szöveg újra a titkosítása úgyan azzal a kulccsal.
+        </para>            
+    </section>        
+    <section>
+        <title>Neurális OR, AND és EXOR kapu</title>
+        <para>
+            R
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/Koyw6IH5ScQ">https://youtu.be/Koyw6IH5ScQ</link>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/NN_R">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/NN_R</link>               
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: Neurális hálónak nevezzük azt a párhuzamos működésre képes információfeldolgozó eszközt, amely nagyszámú, hasonló típusú elem összekapcsolt rendszeréből áll
+	Ezenfelül egyik legfontosabb jellemzője az hogy rendelkezik tanulási algoritmussal és képes előhívni a megtanult információt.
+        </para>            
+    </section>        
+    <section>
+        <title>Hiba-visszaterjesztéses perceptron</title>
+        <para>
+            C++
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://www.youtube.com/watch?v=XpBnR31BRJY">https://www.youtube.com/watch?v=XpBnR31BRJY</link>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://github.com/nbatfai/nahshon/blob/master/ql.hpp#L64">https://github.com/nbatfai/nahshon/blob/master/ql.hpp#L64</link>       
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: A perceptron legelterjedtebb változata, a neuron a mesterséges intelligenciában használt, amit tekinthetünk egy alakfelismerő gépnek.
+			Feladata, hogy véges számú kísérletből megtanulja osztályozni bemeneti mintázatokat amik nullákból és egyesekből áll. 
+			A bemeneteknek a súlyozott összegzését végzi, ezt követi egy nem lineáris leképezés.
+        </para>            
+    </section>        
+        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                

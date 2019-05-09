@@ -1,0 +1,267 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Turing!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+    <section>
+        <title>Végtelen ciklus</title>
+        <para>
+            Írj olyan C végtelen ciklusokat, amelyek 0 illetve 100 százalékban dolgoztatnak egy magot és egy olyat, amely  
+            100 százalékban minden magot!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:           
+        </para>
+		<programlisting language="c"><![CDATA[
+		//0%-ban terheli a magot
+		#include <stdio.h>
+		#include <stdlib.h>
+		#include <unistd.h>
+		int main()
+		{
+		for(;;)
+			Sleep(500);
+		return 0;
+		}
+		]]></programlisting>
+		<programlisting language="c"><![CDATA[
+		//100%-ban terheli a magot
+		#include <stdio.h>
+		#include <stdlib.h>
+		int main()
+		{
+		for(;;)
+		return 0;
+		}
+		]]></programlisting>
+		<programlisting language="c"><![CDATA[
+		//100%-ban terheli minden magot
+		#include <stdio.h>
+		#include <stdlib.h>
+
+		int main ()
+		{
+		#pragma omp parallel
+		{
+		for (;;);
+		}
+		return 0;
+		}
+		]]></programlisting>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: A 0%-os magterhelést egy egyszerű sleep függvénnyel érjük el, a 100-ost egy for ciklussal paraméterek nélkül, az összes magot, pedig párhuzamos futatással.
+        </para>            
+    </section>        
+        
+    <section>
+        <title>Lefagyott, nem fagyott, akkor most mi van?</title>
+        <para>
+            Mutasd meg, hogy nem lehet olyan programot írni, amely bármely más programról eldönti, hogy le fog-e fagyni vagy sem!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:  tegyük fel, hogy akkora haxorok vagyunk, hogy meg tudjuk írni a <function>Lefagy</function>
+            függvényt, amely tetszőleges programról el tudja dönteni, hogy van-e benne vlgtelen ciklus:              
+        </para>
+        <programlisting language="c"><![CDATA[Program T100
+{
+
+	boolean Lefagy(Program P)
+	{
+		 if(P-ben van végtelen ciklus)
+			return true;
+		 else
+			return false; 
+	}
+
+	main(Input Q)
+	{
+		Lefagy(Q)
+	}
+}]]></programlisting>            
+        <para>
+            A program futtatása, például akár az előző <filename>v.c</filename> ilyen pszeudókódjára:
+            <screen><![CDATA[T100(t.c.pseudo)
+true]]></screen>            
+            akár önmagára
+            <screen><![CDATA[T100(T100)
+false]]></screen>  
+            ezt a kimenetet adja.          
+        </para>
+        <para>
+            A T100-as programot felhasználva készítsük most el az alábbi T1000-set, amelyben a
+            Lefagy-ra épőlő Lefagy2 már nem tartalmaz feltételezett, csak csak konkrét kódot:
+        </para>
+        <programlisting language="c"><![CDATA[Program T1000
+{
+
+	boolean Lefagy(Program P)
+	{
+		 if(P-ben van végtelen ciklus)
+			return true;
+		 else
+			return false; 
+	}
+
+	boolean Lefagy2(Program P)
+	{
+		 if(Lefagy(P))
+			return true;
+		 else
+			for(;;); 
+	}
+
+	main(Input Q)
+	{
+		Lefagy2(Q)
+	}
+
+}]]></programlisting>            
+        <programlisting><![CDATA[]]></programlisting>            
+        <para>
+            Mit for kiírni erre a <computeroutput>T1000(T1000)</computeroutput> futtatásra?
+                                
+            <itemizedlist>
+                <listitem>
+                    <para>Ha T1000 lefagyó, akkor nem fog lefagyni, kiírja, hogy true</para>                        
+                </listitem>
+                <listitem>
+                    <para>Ha T1000 nem fagyó, akkor pedig le fog fagyni...</para>                        
+                </listitem>
+            </itemizedlist>
+            akkor most hogy fog működni? Sehogy, mert ilyen <function>Lefagy</function>
+            függvényt, azaz a T100 program nem is létezik.                
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: Egy program nem tudja leellenőrizni, hogy egy másik végtelen ciklus-e, mert ahhoz le kellene futtassa, de ha végtelen ciklus, akkor nem fog lefutni. Ez az ellenmondás okozza a program bugjait.
+        </para>
+    </section>        
+                
+    <section>
+        <title>Változók értékének felcserélése</title>
+        <para>
+            Írj olyan C programot, amely felcseréli két változó értékét, bármiféle logikai utasítás vagy kifejezés
+            nasználata nélkül!
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2018/08/28/10_begin_goto_20_avagy_elindulunk">https://bhaxor.blog.hu/2018/08/28/10_begin_goto_20_avagy_elindulunk</link>
+        </para>
+        <para>
+            Megoldás forrása:
+        </para>
+		<programlisting language="c"><![CDATA[
+		//változó csere kivonással
+		#include <stdio.h>
+		#include <stdlib.h>
+
+		int main()
+		{
+		int a=8, b=14;
+		printf("a=%d\n", a);
+		printf("b=%d\n", b);
+		b=b+a;
+		a=b-a;
+		b=b-a;
+		printf("a=%d\n", a);
+		printf("b=%d\n", b);
+		return 0;
+		}
+		]]></programlisting>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: A második számot hozzáadjuk az elsőhöz, majd a második értékét felülítjuk úgy, hogy az összegből kivonjuk önmagát. Majd az összegből kivonjuk a második új értékét.
+        </para>
+    </section>                     
+
+    <section>
+        <title>Labdapattogás</title>
+        <para>
+            Először if-ekkel, majd bármiféle logikai utasítás vagy kifejezés
+            nasználata nélkül írj egy olyan programot, ami egy labdát pattogtat a karakteres konzolon! (Hogy mit értek
+            pattogtatás alatt, alább láthatod a videókon.)
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2018/08/28/labdapattogas">https://bhaxor.blog.hu/2018/08/28/labdapattogas</link>
+        </para>
+        <para>
+            Megoldás forrása:  if-ekkel: <link xlink:href="https://bhaxor.blog.hu/2018/08/28/labdapattogas">https://bhaxor.blog.hu/2018/08/28/labdapattogas</link>
+							   if-ek nélkül: <link xlink:href="https://gist.github.com/TMark99/ce9247c79f697fff837333dc4e9c7045">https://gist.github.com/TMark99/ce9247c79f697fff837333dc4e9c7045</link>
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: Az if-es verzióban, folyamatosan figyeljük, hogy nem léptünk-e ki a dobozból, és ha a szélére kerülünk, vissza pattintja a labdát. 
+			Az if nélküli verzióban meg van adva a maximum érték, amit nem lép át a program, ezzel érve el a visszapattanást.
+        </para>
+    </section>                     
+
+    <section>
+        <title>Szóhossz és a Linus Torvalds féle BogoMIPS</title>
+        <para>
+            Írj egy programot, ami megnézi, hogy hány bites a szó a gépeden, azaz mekkora az <type>int</type> mérete.
+            Használd ugyanazt a while ciklus fejet, amit Linus Torvalds a BogoMIPS rutinjában! 
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/9KnMqrkj_kU">https://youtu.be/9KnMqrkj_kU</link>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://gist.github.com/TMark99/fa76a8361553315f8e4a3e96c61223bf">https://gist.github.com/TMark99/fa76a8361553315f8e4a3e96c61223bf</link>
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: Az értéket balra bitshifteljük, ameddig nem lesz 0 az értéke. Így megtudjuk, hogy hány bittes, a deklarált típus. 
+			A bitshiftelést egy do while-ba helyezzük, ami egyszer kevesebbszer fog lefutni, mint ahány bites a változó.
+        </para>
+    </section>                     
+
+    <section>
+        <title>Helló, Google!</title>
+        <para>
+            Írj olyan C programot, amely egy 4 honlapból álló hálózatra kiszámolja a négy lap Page-Rank 
+            értékét!
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href=""></link>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://gist.github.com/TMark99/19b4193ddde07ea0ac3496a6fd88414b">https://gist.github.com/TMark99/19b4193ddde07ea0ac3496a6fd88414b</link>
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: Két ismétlő utasítással megnézzük, hogy melyik oldalra van több mutató, majd kiírjuk az eredményvektort. 
+        </para>
+    </section>
+
+    <section xml:id="Brun">
+        <title>100 éves a Brun tétel</title>
+        <para>
+            Írj R szimulációt a Brun tétel demonstrálására!
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/xbYhp9G6VqQ">https://youtu.be/xbYhp9G6VqQ</link>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/blob/master/attention_raising/Primek_R">https://gitlab.com/nbatfai/bhax/blob/master/attention_raising/Primek_R</link>
+        </para>
+    </section>
+    
+    <section xml:id="bhax-textbook-feladatok-turing.MontyHall">
+        <title>A Monty Hall probléma</title>
+        <para>
+            Írj R szimulációt a Monty Hall problémára!
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2019/01/03/erdos_pal_mit_keresett_a_nagykonyvben_a_monty_hall-paradoxon_kapcsan">https://bhaxor.blog.hu/2019/01/03/erdos_pal_mit_keresett_a_nagykonyvben_a_monty_hall-paradoxon_kapcsan</link>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/MontyHall_R">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/MontyHall_R</link>
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: A Monty Hall paradoxon egy amerikai műsor utolsó feladatán alapul. A műsor végén a játékos 3 ajtó közül kell válaszon. A választott ajtó kinyitása előtt azonban a műsor vezető kinyitja az egyik ajtót, amiben nem a főnyeremény van. Ezt követően a játékos változtathat ha szeretne.
+			A program vizsgálja, hogy hányszor nyer a játékos a változtatás után illetve ha nem változtat.
+        </para>
+    </section>
+
+</chapter>                

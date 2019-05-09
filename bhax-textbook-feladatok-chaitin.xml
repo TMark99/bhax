@@ -1,0 +1,82 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Chaitin!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+    <section>
+        <title>Iteratív és rekurzív faktoriális Lisp-ben</title>
+        
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/z6NJE2a1zIA">https://youtu.be/z6NJE2a1zIA</link>      
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="http://codeforsharing.appspot.com/code/4696563918045184">http://codeforsharing.appspot.com/code/4696563918045184</link>             
+        </para>
+		Tanulságok, tapasztalatok, magyarázat: Az algoritmus a megszokott, egy forban számolunk vissza fele az adott számtól, egyik és a részeredményeket megszorozuk az n változóval. A különbség annyi, hogy lipsben az operandus a változók elé kerül.
+		<para> 
+        </para>
+    </section>        
+    <section>
+        <title>Gimp Scheme Script-fu: króm effekt</title>
+        <para>
+            Írj olyan script-fu kiterjesztést a GIMP programhoz, amely megvalósítja a króm effektet egy 
+            bemenő szövegre!
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/OKdAkI_c7Sc">https://youtu.be/OKdAkI_c7Sc</link>      
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/GIMP_Lisp/Chrome">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/GIMP_Lisp/Chrome</link>               
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: A program a következő lépéseket hajtja végre:
+        </para>
+		<para>
+		1. Létrehoz egy fehér hátteret majd feketére festi és behelyzi a fehér szöveget  a kép közepére.
+		</para>
+		<para>
+		2. Gauss elmosás.
+		</para>
+		<para>
+		3. Alsó és felső határok beállítása, kép élesítés.
+		</para>
+		<para>
+		4. Gauss elmosás.
+		</para>
+		<para>
+		5. Színek szerinti kijelőlés, a feketét invertálja, a szövegünk keretet kap.
+		</para>
+		<para>
+		6. Áttetsző réteget készít.
+		</para>
+		<para>
+		7.Gradienst megállapítása. Szürke színátmenet keletkezik.
+		</para>
+		<para>
+		8. Térhatás generálodik.
+		</para>
+		<para>
+		9. Fémesség beállítása.
+		</para>
+    </section>        
+
+    <section>
+        <title>Gimp Scheme Script-fu: név mandala</title>
+        <para>
+            Írj olyan script-fu kiterjesztést a GIMP programhoz, amely név-mandalát készít a
+            bemenő szövegből!               
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2019/01/10/a_gimp_lisp_hackelese_a_scheme_programozasi_nyelv">https://bhaxor.blog.hu/2019/01/10/a_gimp_lisp_hackelese_a_scheme_programozasi_nyelv</link>      
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/GIMP_Lisp/Mandala">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/GIMP_Lisp/Mandala</link>               
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: Ez ugyan úgy működik, mint az előző feladat, csak itt a szöveget sokszorosítjuk és forgatjuk, hogy egy mandalát, vagy ahoz hasonló alakzatot kapjunk. 
+        </para>            
+    </section>        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+</chapter>            

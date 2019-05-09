@@ -1,0 +1,126 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Conway!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+    <section>
+        <title>Hangyaszimulációk</title>
+        <para>
+            Írj Qt C++-ban egy hangyaszimulációs programot, a forrásaidról utólag reverse engineering jelleggel
+            készíts UML osztálydiagramot is!
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2018/10/10/myrmecologist">https://bhaxor.blog.hu/2018/10/10/myrmecologist</link>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/Myrmecologist">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/Myrmecologist</link>               
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: A hangyaszimuláció egy sejtautomata, amely egy hangyabolyt szimulál.
+            A program több osztályból áll. <function>Ant</function> egy alapvető függvény, ami egy hangyát szimulál, tartalmazza annak helyét és irányát. 
+        </para>
+    </section>        
+    <section>
+        <title>Java életjáték</title>
+        <para>
+            Írd meg Java-ban a John Horton Conway-féle életjátékot, 
+            valósítsa meg a sikló-kilövőt!
+        </para>
+        <para>
+            Megoldás videó: 
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://progpater.blog.hu/2011/03/03/fegyvert_a_nepnek">https://progpater.blog.hu/2011/03/03/fegyvert_a_nepnek</link>               
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat:
+			<para>
+            Tanulságok, tapasztalatok, magyarázat: John Horton Conway britt matematikus fejlesztett ki Az Életjáték-ot ami egy sejtautomata. 
+            A sejtautomaták olyan modellek, melyeket a mikrostruktúrák modellezésében használnak.
+			A sejteknek különböző állapota lehet, és az idő teltével a cellák változtatják állapotukat egy feltétel szerint.
+            Ebben az életjátékban nincs játékos, mindent a kezdeti pozíció határozza meg.
+            A következő négy szabály él a játékban:
+        </para>
+        <itemizedlist mark='dash'>
+            <listitem>
+                <para>
+					Az élőcella meghal, ha kevesebb élő szomszédja van mint kettő. 
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+					Az élőcella életben marad, ha annak kettő vagy három élő szomszédja van.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+					Az élőcella meghal, ha több mint három élő szomszédja van.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   A halott cella élővé válik, ha annak pontosan 3 élő szomszédja van.
+                </para>
+            </listitem>
+        </itemizedlist>
+        </para>            
+    </section>        
+    <section>
+        <title>Qt C++ életjáték</title>
+        <para>
+            Most Qt C++-ban!
+        </para>
+        <para>
+            Megoldás videó: 
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://sourceforge.net/p/udprog/code/ci/master/tree/source/labor/Qt/Sejtauto/">https://sourceforge.net/p/udprog/code/ci/master/tree/source/labor/Qt/Sejtauto/</link>               
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: John Horton Conway britt matematikus fejlesztett ki Az Életjáték-ot ami egy sejtautomata. 
+            A sejtautomaták olyan modellek, melyeket a mikrostruktúrák modellezésében használnak.
+			A sejteknek különböző állapota lehet, és az idő teltével a cellák változtatják állapotukat egy feltétel szerint.
+            Ebben az életjátékban nincs játékos, mindent a kezdeti pozíció határozza meg.
+            A következő négy szabály él a játékban:
+        </para>
+        <itemizedlist mark='dash'>
+            <listitem>
+                <para>
+					Az élőcella meghal, ha kevesebb élő szomszédja van mint kettő. 
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+					Az élőcella életben marad, ha annak kettő vagy három élő szomszédja van.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+					Az élőcella meghal, ha több mint három élő szomszédja van.
+                </para>
+            </listitem>
+            <listitem>
+                <para>
+                   A halott cella élővé válik, ha annak pontosan 3 élő szomszédja van.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </section>        
+    <section>
+        <title>BrainB Benchmark</title>
+        <para>
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://github.com/nbatfai/esport-talent-search">https://github.com/nbatfai/esport-talent-search</link>               
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat:
+			Ez a program egy képesség felmérő játék. A játékosnak tíz percen keresztül kell követnie a megadott kockát, miközben a képernyőn egyre több elem
+			jelenik meg. Amennyiben elveszíti a követendő karaktert, a plusz elemek elkezdenek eltűnni.
+			Ezt a jelenséget a videójátékok világában tapasztalhatjuk. Ezt szimulálja ez az egyszerű program.
+        </para>
+    </section>        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                

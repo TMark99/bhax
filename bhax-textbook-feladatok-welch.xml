@@ -1,0 +1,249 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Welch!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+    <section>
+        <title>Első osztályom</title>
+        <para>
+            Valósítsd meg C++-ban és Java-ban az módosított polártranszformációs algoritmust! A matek háttér 
+            teljesen irreleváns, csak annyiban érdekes, hogy az algoritmus egy számítása során két normálist
+            számol ki, az egyiket elspájzolod és egy további logikai taggal az osztályban jelzed, hogy van vagy
+            nincs eltéve kiszámolt szám.
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+		<para>
+            C++-ban:
+        </para>
+        <para>
+		<programlisting language="c"><![CDATA[
+		#include "polargen.h"
+		double PolarGen::kovetkezo()
+		{
+		if (nincsTarolt)
+		{
+			double u1, u2, v1, v2, w;
+			do
+			{
+				u1 = std::rand() / (RAND_MAX + 1.0);
+				u2 = std::rand() / (RAND_MAX + 1.0);
+				v1 = 2*u1-1;
+				v2 = 2*u2-1;
+				w = v1*v1+v2*v2;
+			}
+			while (w > 1);
+			double r = std::sqrt ((-2*std::log (w)) / w);
+			tarolt = r*v2;
+			nincsTarolt = !nincsTarolt;
+			return r*v1;
+		}
+		else
+		{
+			nincsTarolt = !nincsTarolt;
+			return tarolt;
+		}
+		}
+		}]]>
+		</programlisting>
+		</para>
+		<para>
+        Java-ban:
+		</para>
+		<programlisting><![CDATA[
+		public class PolárGenerátor {
+		boolean nincsTárolt = true;
+		double tárolt;
+		public PolárGenerátor() {
+			nincsTárolt = true;
+		}
+		public double következő() {
+			if (nincsTárolt) {
+				double u1, u2, v1, v2, w;
+				do {
+					u1 = Math.random();
+					u2 = Math.random();
+					v1 = 2*u1-1;
+					v2 = 2*u2-1;
+					w = v1*v1+v2*v2;
+				} while (w > 1);
+				double r = Math.sqrt((-2*Math.log(w)) / w);
+				tárolt = r*v2;
+				nincsTárolt = !nincsTárolt;
+				return r*v1;
+			} else {
+				nincsTárolt = !nincsTárolt;
+				return tárolt;
+			}
+		}
+		public static void main(String[] arps) 
+			{
+			PolárGenerátor g = new PolárGenerátor();
+			for (int i = 0; i < 10; ++i) 
+				{
+				System.out.println(g.következő());
+				}
+			}
+		}
+	}]]>
+	</programlisting>
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat: A feladatban szereplő polártranszformáció segítségével váletlen számokat tudunk
+            meghatározni. Az algoritmus olyannyira eltrejedt, hogy a Java random szám
+            generátor függvénye is ezt használja.
+        </para>                
+    </section>        
+
+    <section>
+        <title>LZW</title>
+        <para>
+            Valósítsd meg C-ben az LZW algoritmus fa-építését!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása: <link xlink:href="https://gist.github.com/TMark99/45fb188482bf8a29bf89bc258b5d7a59">https://gist.github.com/TMark99/45fb188482bf8a29bf89bc258b5d7a59</link>            
+        </para>
+		<para>
+            Tanulságok, tapasztalatok, magyarázat: Az LZW algoritmus egy tömörítő eljárás. 
+			Az algoritmus bemenet ként egy nullákból és egyesekből álló sort kap, és ezekből épít bináris fát.
+			A soron következő bemeneti értéket beteszi a fába, ha az még nem szerepel benne. Ha szerepel benne
+			akkor rálép és veszi a következő bemeneti adatot. Ha nem szerepel még a fában, akkor akkor behelyezi
+			annak a csúcsnak a gyermeke ként, amelyiknél éppen áll a mutató. Minden beszúrás után a gyökérre áll a mutató.
+        </para> 
+    </section>        
+        
+    <section>
+        <title>Fabejárás</title>
+        <para>
+            Járd be az előző (inorder bejárású) fát pre- és posztorder is!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:                
+        </para>
+		<para>
+            Preorder:                
+        </para>
+		<para>
+		<programlisting><![CDATA[
+		void
+		kiir (BINFA_PTR elem)
+		{
+			if (elem != NULL)
+			{
+				++melyseg;
+				if (melyseg > max_melyseg)
+					max_melyseg = melyseg;
+				for (int i = 0; i < melyseg; ++i)
+					printf ("---");
+				printf ("%c(%d)\n", elem->ertek < 2 ? '0' + elem->ertek : elem->ertek,
+				melyseg);
+				kiir (elem->bal_nulla);
+				kiir (elem->jobb_egy);
+				--melyseg;
+			}
+		}
+		]]>
+		</programlisting>
+		<para>
+		Postorder
+		</para>
+		<para>
+		<programlisting><![CDATA[
+		void kiir (BINFA_PTR elem)
+		{
+			if (elem != NULL)
+			{
+				++melyseg;
+				if (melyseg > max_melyseg)
+					max_melyseg = melyseg;
+				kiir (elem->bal_nulla);
+				kiir (elem->jobb_egy);
+				for (int i = 0; i < melyseg; ++i)
+					printf ("---");
+				printf ("%c(%d)\n", elem->ertek < 2 ? '0' + elem->ertek : elem->ertek,melyseg);
+				--melyseg;
+			}
+		}
+		]]>
+		</programlisting>
+        </para>
+		<para>
+		Tanulságok, tapasztalatok, magyarázat:Preorder bejárás esetén, a gyökeret írjuk ki elsőnek, majd ennek a bal oldali gyermekét és a jobb oldalival fejezzük be.
+		Posztorder bejárás esetén, a bal oldali leszármazottal kezdjük, majd a jobb oldalival folytatjuk és a gyökérrel fejezzük be.
+		</para>
+    </section>        
+                        
+    <section>
+        <title>Tag a gyökér</title>
+        <para>
+            Az LZW algoritmust ültesd át egy C++ osztályba, legyen egy Tree és egy beágyazott Node
+            osztálya. A gyökér csomópont legyen kompozícióban a fával!
+        </para>
+        <para>
+            Megoldás videó:
+        </para>
+        <para>
+            Megoldás forrása:  <link xlink:href="https://gist.github.com/TMark99/47640dd42084e09774561fe900bce84b">https://gist.github.com/TMark99/47640dd42084e09774561fe900bce84b</link>              
+        </para>
+		<para>
+		Tanulságok, tapasztalatok, magyarázat: A az LZWBinFa osztály private részébe helyezzük a Csomópont osztályt.
+		<function>Csomopont</function> típusú objektumot csak az <function>LZWBinFa</function> osztályon belül tudunk létrehozni.
+        A Csomopont alapértelmezett értékét '/'-re állítjuk, a gyermekeit pedig nullára. Az osztály protected részében
+		találjuk a gyökér változót, amely tagja az osztálynak.
+		</para>
+    </section>        
+                
+    <section>
+        <title>Mutató a gyökér</title>
+        <para>
+            Írd át az előző forrást, hogy a gyökér csomópont ne kompozícióban, csak aggregációban legyen a 
+            fával!
+        </para>
+        <para>
+            Megoldás videó: 
+        </para>
+        <para>
+            Megoldás forrása:  <link xlink:href="https://gist.github.com/TMark99/6527ca6bd214a97dc8ddb6150c5391d4">https://gist.github.com/TMark99/6527ca6bd214a97dc8ddb6150c5391d4</link>
+        </para>
+		<para>
+		Tanulságok, tapasztalatok, magyarázat: 
+		A konstruktorban a gyökérre egyszerűen ráállítjuk a famutatót.
+		Most viszont mutató lesz a gyökér is, ezért az előző forrásban mindenhol, ahol referenciaként adtuk át a gyökeret a famutatónak, 
+		ott referencia nélkül tesszük. 
+		Továbbá példányosítjuk a gyökeret a konstruktorban, a memóriában helyet foglalunk és a fát erre állítjuk rá.
+		A szabadításkor pedig nyilat használunk pont helyett, ha mutató mutatóit kell elérni.
+
+		</para>
+    </section>                     
+
+    <section>
+        <title>Mozgató szemantika</title>
+        <para>
+            Írj az előző programhoz mozgató konstruktort és értékadást, a mozgató konstruktor legyen a mozgató
+            értékadásra alapozva!
+        </para>
+        <para>
+            Megoldás videó: 
+        </para>
+        <para>
+            Megoldás forrása:  <link xlink:href="https://gist.github.com/TMark99/b9c0d14bcc1957a790cf77aaf90fcbce">https://gist.github.com/TMark99/b9c0d14bcc1957a790cf77aaf90fcbce</link>
+        </para>
+		<para>
+		Tanulságok, tapasztalatok, magyarázat: 
+		A mozgatást úgy oldjuk meg, hogy a fánkat átmásoljuk egy másik "üres" fára, majd az eredetit töröljük.
+		</para>
+    </section>                     
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                
