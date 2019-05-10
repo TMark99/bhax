@@ -14,8 +14,8 @@
         <para>
             Megoldás forrása: <link xlink:href="http://codeforsharing.appspot.com/code/4696563918045184">http://codeforsharing.appspot.com/code/4696563918045184</link>             
         </para>
-		Tanulságok, tapasztalatok, magyarázat: Az algoritmus a megszokott, egy forban számolunk vissza fele az adott számtól, egyik és a részeredményeket megszorozuk az n változóval. A különbség annyi, hogy lipsben az operandus a változók elé kerül.
-		<para> 
+	    <para>
+		Tanulságok, tapasztalatok, magyarázat: Az algoritmus a megszokott, egy forban számolunk vissza fele az adott számtól, egyik és a részeredményeket megszorozuk az n változóval. A különbség annyi, hogy lipsben az operandus a változók elé kerül. 
         </para>
     </section>        
     <section>
