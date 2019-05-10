@@ -14,6 +14,7 @@
         <title>Programozási alapfogalmak</title>
         <para>         
             <citation>PICI</citation>
+			</para>
 		<para>
 		Alapfogalmak
 		</para>
@@ -303,7 +304,7 @@
 		Paraméterátadás referenciatípussal
 		</para>
 		<para>
-		Az átadáshoz pointert használunk és a paraméter elé a függvény deklarálásnál a váltózó elé egy & jelet kell írnunk.
+		Az átadáshoz pointert használunk és a paraméter elé a függvény deklarálásnál a váltózó elé egy és jelet kell írnunk.
 		</para>
 		<para>
 		Az objektumorientáltság alapelvei:
