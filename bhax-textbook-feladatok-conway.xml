@@ -36,6 +36,7 @@
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat:
+			</para>
 			<para>
             Tanulságok, tapasztalatok, magyarázat: John Horton Conway britt matematikus fejlesztett ki Az Életjáték-ot ami egy sejtautomata. 
             A sejtautomaták olyan modellek, melyeket a mikrostruktúrák modellezésében használnak.
@@ -65,7 +66,7 @@
                 </para>
             </listitem>
         </itemizedlist>
-        </para>            
+                    
     </section>        
     <section>
         <title>Qt C++ életjáték</title>
